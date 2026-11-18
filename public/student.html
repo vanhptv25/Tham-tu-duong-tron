@@ -1,0 +1,26 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Học sinh · Thám tử đường tròn</title><link rel="stylesheet" href="/assets/style.css"/></head>
+<body><div class="page student-page"><header class="head"><div><div class="brand">🔎 THÁM TỬ <span>ĐƯỜNG TRÒN</span></div><div class="subhead">TOÁN 7 · BÀI 7.2 · THI ĐẤU CÁ NHÂN</div></div><div class="utilities"><span class="status-chip" id="roomBadge">Mã phòng: ...</span><button class="outline mini" id="soundBtn">🔊 Âm thanh</button></div></header>
+<div class="panel error hidden" id="fatal"></div>
+<section id="entry" class="panel enter"><div class="big-icon">🕵️</div><h1>Em đã sẵn sàng làm thám tử?</h1><div id="entryDetail" class="room-detail">Đang kiểm tra mã phòng...</div><form id="joinForm" class="stack"><label for="studentName">Họ và tên học sinh</label><input id="studentName" autocomplete="name" maxlength="60" placeholder="Ví dụ: Nguyễn Minh Anh" required/><button id="joinBtn" class="primary" type="submit">Tham gia phòng →</button><p id="joinError" class="error" role="alert"></p></form></section>
+<section id="waiting" class="panel waiting hidden"><div class="big-icon">⏳</div><h1>Em đã vào phòng!</h1><p>Chào <strong id="waitingName"></strong>. Em đã sẵn sàng. Hãy theo dõi trạng thái phòng học.</p><div class="waiting-chip" id="waitNotice">Chờ cô giáo bắt đầu...</div><button class="primary hidden" id="beginBtn">▶ BẮT ĐẦU LÀM BÀI</button><p class="note">12 câu hỏi: gọi tên 6 bộ phận, sau đó chạm đúng trên hình. Mỗi câu có thời gian giới hạn.</p></section>
+<section id="game" class="hidden"><div class="gridstats student-stats"><div class="panel metric"><span>Học sinh</span><b id="studentLabel" class="small-title">–</b></div><div class="panel metric"><span>Điểm cá nhân</span><b id="scoreLabel">0</b></div><div class="panel metric"><span>Thử thách</span><b id="countLabel">1/12</b></div><div class="panel metric timer"><span>Còn lại</span><b id="timerLabel">15,0s</b><div class="timertrack"><div id="timerBar"></div></div></div></div>
+<div class="progress"><div id="progressFill"></div></div><div class="columns game-columns"><div class="panel circle-board"><div class="board-title"><strong>Hình tròn tâm O</strong><small id="boardHint">Quan sát hình vẽ</small></div>
+<svg id="scene" viewBox="0 0 580 430" role="img" aria-label="Tâm O, bán kính OA, đường kính BC, dây cung DE chéo, tiếp tuyến tại T, đường tròn">
+<circle class="base" data-part="chuvi" cx="290" cy="216" r="137"/>
+<line class="shape" data-part="duongkinh" x1="153" y1="216" x2="427" y2="216"/>
+<line class="shape" data-part="daycung" x1="185" y1="304" x2="419" y2="169"/>
+<line class="shape" data-part="bankinh" x1="290" y1="216" x2="358.5" y2="97.35"/>
+<line class="shape tangent" data-part="tieptuyen" x1="113" y1="79" x2="467" y2="79"/>
+<circle class="point" data-part="tam" cx="290" cy="216" r="8"/>
+<g><text class="txt" x="276" y="236">O</text><text class="txt" x="366" y="98">A</text><text class="txt" x="131" y="238">B</text><text class="txt" x="433" y="238">C</text><text class="txt" x="162" y="327">D</text><text class="txt" x="425" y="166">E</text><text class="txt" x="297" y="66">T</text><text class="txt" x="478" y="85" style="font-style:italic">t</text></g>
+<circle class="hit" data-hit="chuvi" cx="290" cy="216" r="137"/>
+<line class="hit" data-hit="duongkinh" x1="153" y1="216" x2="427" y2="216"/>
+<line class="hit" data-hit="daycung" x1="185" y1="304" x2="419" y2="169"/>
+<line class="hit" data-hit="bankinh" x1="290" y1="216" x2="358.5" y2="97.35"/>
+<line class="hit" data-hit="tieptuyen" x1="113" y1="79" x2="467" y2="79"/>
+<circle class="hitpoint" data-hit="tam" cx="290" cy="216" r="23"/>
+</svg><div class="diagram-legend"><span>OA · bán kính</span><span>BC · qua tâm</span><span>DE · dây chéo</span></div></div>
+<div class="panel questions"><div class="kicker" id="chapter">CHẶNG 1 – GỌI TÊN</div><h2 id="question">Câu hỏi</h2><p id="questionSub" class="muted"></p><div id="options" class="options"></div><div class="touch-instruction hidden" id="touchInstruction">👆 Bấm đúng bộ phận trực tiếp trên hình bên cạnh.</div><div id="feedback" class="feedback"></div><button id="nextBtn" class="primary hidden">CÂU TIẾP THEO →</button></div></div></section>
+<section id="finished" class="panel finished hidden"><div class="big-icon">🏆</div><h1>HOÀN THÀNH XUẤT SẮC!</h1><p id="finishName"></p><div class="finish-grid"><div><span>Điểm</span><strong id="finalScore">0</strong></div><div><span>Đúng</span><strong id="finalCorrect">0/12</strong></div><div><span>Thời gian trả lời</span><strong id="finalTime">0s</strong></div></div><p>Điểm của em đã có trên bảng xếp hạng của cô. Em hãy báo cô sau khi hoàn thành nhé!</p></section>
+<footer class="footer-note">Trò chơi dùng cùng mã phòng của giáo viên. Cần mạng Wi-Fi hoặc Internet để đồng bộ điểm trực tiếp.</footer></div>
+<script src="/assets/shared.js"></script><script src="/assets/student.js"></script></body></html>
